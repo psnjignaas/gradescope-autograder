@@ -22,7 +22,7 @@ Results are stored in results.json file
 2) Add tests in tests.py (more guidelines are given in comments)
 3) make sure SUBMISSION_DIR = "/autograder/submission" and RESULTS_DIR = "/autograder/results"
 4) zip files/ tests.py grader.py run_autograder setup.sh
-5) Upload the zip file to autograder 
+5) Upload the zip file to autograder (grader.zip should be uploaded to gradescope)
 
 ##### What do these files do?
 
