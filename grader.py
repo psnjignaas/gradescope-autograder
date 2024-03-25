@@ -77,7 +77,12 @@ def checkIOFlexible(test, stdout):
     if len(out) > len(exp):
         if test["displayDiff"]:
             feedback = f"""Output contains additional text .\nExpected output:\n{test['expected']}\nCode output:\n{stdout}\n"""
-            return feedback, False
+        return feedback, False
+    if len(out) < len(exp):
+        if test["displayDiff"]:
+            feedback = f"""Output incomplete .\nExpected output:\n{test['expected']}\nCode output:\n{stdout}\n"""
+        return feedback, False
+
     while i < len(out) and j < len(exp):
         if out[i] == exp[i]:
             i += 1
@@ -161,7 +166,7 @@ for test in tests:
             processScriptTestOutput(test, script_status, script_output)
         )
     if test["type"] == "script" and "input" in test:
-        script_status, script_output = run_script(test["script"])
+        script_status, script_output = run_script(test["script"], test["input"])
         result["tests"].append(
             processScriptTestOutput(test, script_status, script_output)
         )
