@@ -106,7 +106,11 @@ def processIOTestOutput(test, status, output):
         if "context" in test:
             result["output"] = test["context"]
         if output.returncode == 0:
-            feedback, match = checkIOFlexible(test, output.stdout)
+            if test["ioCheck"] == "strict":
+                feedback, match = checkIOStrict(test, output.stdout)
+            else:
+                feedback, match = checkIOFlexible(test, output.stdout)
+
             if match:
                 result["output"] += test["successText"] + feedback
                 result["status"] = "passed"

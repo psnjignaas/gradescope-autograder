@@ -35,6 +35,7 @@ test_2 = {
     "successText": "IO Test passed\n",
     "failureText": "IO Test failed\n",
     "displayDiff": True,
+    "ioCheck": "flex",
     "input": "1\n2",
     "expected": """Enter num1:
 Enter num2:
@@ -51,6 +52,7 @@ test_3 = {
     "script": "./calculator mul",
     "successText": "IO Test passed\n",
     "failureText": "IO Test failed\n",
+    "ioCheck": "strict",
     "displayDiff": True,
     "input": "1\n2",
     "expected": """Enter num1:
